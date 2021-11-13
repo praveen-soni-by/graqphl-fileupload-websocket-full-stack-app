@@ -1,0 +1,6 @@
+#DGS configuration refer :https://netflix.github.io/dgs/configuration/
+
+spring:
+  application:
+    name: netflix-dgs-fileupload
+

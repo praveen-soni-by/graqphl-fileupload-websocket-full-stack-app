@@ -1,0 +1,21 @@
+scalar  Upload
+
+schema {
+    mutation: Mutation
+}
+
+
+type Mutation{
+    uploadFile(file: Upload!): Boolean
+}
+
+type Subscription {
+    status: FileStatus
+}
+
+type FileStatus {
+    id: String
+    message:String
+    fileName:String
+    timeStamp: String
+}

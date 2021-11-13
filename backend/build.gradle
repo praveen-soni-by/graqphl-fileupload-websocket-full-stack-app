@@ -1,0 +1,39 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id "com.netflix.dgs.codegen" version "5.0.6"
+
+}
+
+group = 'com.syscho.graphal'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    testImplementation 'io.projectreactor:reactor-test'
+    implementation 'com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter:3.10.2'
+    //extended scalar support
+    implementation 'com.netflix.graphql.dgs:graphql-dgs-extended-scalars:4.8.0'
+    runtimeOnly 'com.netflix.graphql.dgs:graphql-dgs-subscriptions-websockets-autoconfigure:3.1.0'
+}
+apply plugin: 'com.netflix.dgs.codegen'
+
+//https://netflix.github.io/dgs/generating-code-from-schema/
+generateJava {
+    schemaPaths = ["${projectDir}/src/main/resources/schema"] // List of directories containing schema files
+}
+
+sourceSets.main.java.srcDirs = ['build/generated', 'src/main/java']
+
+
+test {
+    useJUnitPlatform()
+}

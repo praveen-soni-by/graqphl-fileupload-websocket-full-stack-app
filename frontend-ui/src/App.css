@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: rgba(247, 248, 249, 1)
+}
+
+
+#notification-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 10px;
+  cursor: pointer;
+  /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+
+}
+#notification-scroll::-webkit-scrollbar-track {
+  background-color: rgba(229, 231, 235, var(--bg-opacity));
+  cursor: pointer;
+}
+#notification-scroll::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  background-color: #a0aec0;
+}
+
+.error-text{
+  @apply font-medium tracking-wide text-red-400 text-sm 
+}
+.btn{
+  @apply  px-4 py-2 text-white bg-blue-500 rounded disabled:opacity-50 cursor-pointer 
+}
+.no-data-found{
+  @apply text-sm font-medium border border-gray-100 bg-white px-2 py-2 h-full align-middle text-center text-gray-900
+}
+
+.alert-text{
+  @apply  text-sm font-medium cursor-pointer  border border-gray-100 bg-white px-2 py-2 hover:bg-gray-100 text-gray-900
+}
+.alert-text-small{
+  @apply text-gray-300 truncate -mb-1 text-xs
+}
+
+.alert-text-thin {
+  @apply  text-gray-300 text-right -mb-2 text-xs font-normal
+}
+
+
+#toast {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.8s;
+}
+
+@-webkit-keyframes fadein {
+  from {right: -40px; opacity: 0;} 
+  to {right: 1rem; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {right: -40px; opacity: 0;}
+  to {right: 1rem; opacity: 1;}
+}
