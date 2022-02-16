@@ -26,8 +26,9 @@ public class NotificationController {
 
     @GetMapping("/notification/{msg}")
     public String sendNotificaton(@PathVariable("msg") String message, HttpServletRequest httpServletRequest) {
+        String browserAgent = httpServletRequest.getHeader("User-Agent");
         System.out.println("sending notification");
-        Message messages = Message.newBuilder().message(message).timeStamp(LocalDate.now()).build();
+        Message messages = Message.newBuilder().message(message).timeStamp(LocalDate.now()).browser(browserAgent).build();
         messagePublisher.publish(messages);
         return "success";
     }

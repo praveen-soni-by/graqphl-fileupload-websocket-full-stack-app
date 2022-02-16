@@ -17,6 +17,7 @@ type Subscription {
 type Message {
     message:String
     timeStamp: Date
+    browser: String
 }
 
 type FileStatus {

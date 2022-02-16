@@ -30,6 +30,7 @@ export default function Form() {
         message {
           message
           timeStamp
+          browser
         }
       }
     `,
@@ -38,7 +39,7 @@ export default function Form() {
 
   useEffect(() => {
     console.log(data);
-    if (data) {
+    if (data && data.message.browser == navigator.userAgent) {
       setNotifications([data.message, ...notifications]);
     }
   }, [data]);
