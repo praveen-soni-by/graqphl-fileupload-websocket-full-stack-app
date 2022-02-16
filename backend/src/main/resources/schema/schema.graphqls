@@ -1,5 +1,5 @@
 scalar  Upload
-
+scalar Date
 schema {
     mutation: Mutation
 }
@@ -11,6 +11,12 @@ type Mutation{
 
 type Subscription {
     status: FileStatus
+    message:Message
+}
+
+type Message {
+    message:String
+    timeStamp: Date
 }
 
 type FileStatus {

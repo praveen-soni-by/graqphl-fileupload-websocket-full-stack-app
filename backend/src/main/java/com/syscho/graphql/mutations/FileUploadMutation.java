@@ -2,6 +2,7 @@ package com.syscho.graphql.mutations;
 
 import com.netflix.dgs.codgen.generated.DgsConstants;
 import com.netflix.dgs.codgen.generated.types.FileStatus;
+import com.netflix.dgs.codgen.generated.types.Message;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsMutation;
 import com.netflix.graphql.dgs.DgsSubscription;
@@ -53,5 +54,10 @@ public class FileUploadMutation {
     @DgsSubscription
     public Publisher<FileStatus> status() {
         return messagePublisher.subscribe();
+    }
+
+    @DgsSubscription
+    public Publisher<Message> message() {
+        return messagePublisher.subscribeMessage();
     }
 }
